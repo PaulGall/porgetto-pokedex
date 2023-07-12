@@ -5,7 +5,7 @@ export default function Cards() {
   const [pokemonData, setPokemonData] = useState([]);
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
       .then((response) => response.json())
       .then((data) => {
         setPokemonData(data.results);
@@ -18,13 +18,14 @@ export default function Cards() {
       <div
         id="container"
         className="flex flex-wrap w-full h-full gap-32 sm:gap-8 md:gap-10 lg:gap-20 xl:gap-20 m-4 sm:m-8 md:m-10 lg:m-10 xl:m-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
-        {pokemonData.map((pokemon) => (
+        {pokemonData.map((pokemon, index) => (
           <div
             key={pokemon.name}
             className="box-border h-full w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 sm:h-1/2 md:h-1/2 lg:h-1/2 xl:h-1/2">
             <div className="bg-white">
               <img
-                src={`https://pokeapi.co/api/v2/pokemon/${pokemon.id}/`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index + 1}.png`}
+                id="image"
                 className="w-40 mx-auto"
                 alt={pokemon.name}/>
               <div className="flex-col justify-center text-center bg-white">
