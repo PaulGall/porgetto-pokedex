@@ -1,7 +1,7 @@
 import React from "react";
 import 'tailwindcss/tailwind.css';
 
-export default function App () {
+export default function Cards () {
   return (
     <div className="bg-orange-500">
       <h1 className="text-center text-white">Pokedex</h1>
